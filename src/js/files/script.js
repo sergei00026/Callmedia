@@ -123,10 +123,33 @@ purchasesBuyButton.forEach((element, index) => {
 	});
 });
 
+function show_item() {
+	const index = Math.floor(Math.random() * purchasesBuy.length);
+	const visible_purchasesBuy = [];
+	const purchases = document.querySelector('.purchases');
 
+	if (!visible_purchasesBuy.find(key => key === index)) {
 
-setTimeout(function () {
-	purchasesBuy.forEach(element => {
-		element.classList.add('_active-view')
-	});
-}, 3000);
+		purchasesBuy[index].style.display = 'flex';
+		purchasesBuy[index].style.top = 0;
+
+		return;
+	}
+
+	show_item();
+
+}
+
+function close_item() {
+	const index = Math.floor(Math.random() * purchasesBuy.length);
+
+	purchasesBuy[index].style.display = 'none';
+}
+
+setInterval(() => {
+	show_item();
+}, 10000);
+
+setInterval(() => {
+	close_item();
+}, 40000);

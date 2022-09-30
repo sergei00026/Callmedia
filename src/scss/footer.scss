@@ -1,3 +1,31 @@
 //====================================================================================================
+.footer {
+	@include adaptiveValue("padding-top", 45, 20);
+	@include adaptiveValue("padding-bottom", 45, 20);
+	background-color: #232323;
+	// .footer__container
+	&__container {
+		text-align: center;
+	}
+	// .footer__requisites
+	&__requisites {
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: 1.2;
+		letter-spacing: 0.05em;
+		color: #d7d7d7;
+		&:not(:last-child) {
+			margin-bottom: 23px;
+		}
+	}
+	// .footer__politika
+	&__politika {
+		@include adaptiveValue("font-size", 16, 14);
+
+		line-height: 1.2;
+		text-decoration: underline !important;
+		letter-spacing: 0.05em;
+		color: #f7bc00;
+	}
+}
 
 //====================================================================================================
