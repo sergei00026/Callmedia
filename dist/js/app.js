@@ -463,8 +463,7 @@
     const purchasesBuy = document.querySelectorAll(".purchases__buy");
     purchasesBuyButton.forEach(((element, index) => {
         element.addEventListener("click", (function(e) {
-            purchasesBuy[index].classList.add("_active-look");
-            purchasesBuy[index].classList.remove("_active-view");
+            purchasesBuy[index].style.display = "none";
         }));
     }));
     function show_item() {
