@@ -115,43 +115,38 @@ setClock('.timer', setMidNight(now));
 // Появление окон по времени
 const purchasesBuyButton = document.querySelectorAll('.purchases__buy > button');
 const purchasesBuy = document.querySelectorAll('.purchases__buy');
+const purchases = document.querySelector('.purchases');
+console.dir(purchases);
 
 purchasesBuyButton.forEach((element, index) => {
 	element.addEventListener("click", function (e) {
 		purchasesBuy[index].style.display = 'none';
-
-		// purchasesBuy[index].classList.add('_active-look')
-		// purchasesBuy[index].classList.remove('_active-view')
-
 	});
 });
 
 function show_item() {
 	const index = Math.floor(Math.random() * purchasesBuy.length);
-	const visible_purchasesBuy = [];
-	const purchases = document.querySelector('.purchases');
 
-	if (!visible_purchasesBuy.find(key => key === index)) {
+	purchasesBuy[index].style.display = 'flex';
+	setInterval(() => {
 
-		purchasesBuy[index].style.display = 'flex';
-		purchasesBuy[index].style.top = 0;
-
-		return;
-	}
-
-	show_item();
+	}, 1000);
 
 }
 
 function close_item() {
 	const index = Math.floor(Math.random() * purchasesBuy.length);
 	purchasesBuy[index].style.display = 'none';
+	purchases.prepend(purchases.lastElementChild);
+	if (purchases.length == 3) {
+		purchases.lastElementChild.style.display = 'none';
+
+	}
 }
 
 setInterval(() => {
-	show_item();
-}, 10000);
-
-setInterval(() => {
 	close_item();
-}, 40000);
+	show_item();
+
+}, 4000);
+
